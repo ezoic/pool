@@ -12,7 +12,7 @@ by size in generic way:
 ```go
 package main
 
-import "github.com/gobwas/pool"
+import "github.com/ezoic/pool"
 
 func main() {
 	x, n := pool.Get(100) // Returns object with size 128 or nil.
@@ -30,7 +30,7 @@ Pool allows you to pass specific options for constructing custom pool:
 ```go
 package main
 
-import "github.com/gobwas/pool"
+import "github.com/ezoic/pool"
 
 func main() {
 	p := pool.Custom(
@@ -54,7 +54,7 @@ Subpackage `pbytes` is intended for `[]byte` reuse.
 ```go
 package main
 
-import "github.com/gobwas/pool/pbytes"
+import "github.com/ezoic/pool/pbytes"
 
 func main() {
 	bts := pbytes.GetCap(100) // Returns make([]byte, 0, 128).
@@ -69,7 +69,7 @@ You can also create your own range for pooling:
 ```go
 package main
 
-import "github.com/gobwas/pool/pbytes"
+import "github.com/ezoic/pool/pbytes"
 
 func main() {
 	// Reuse only slices whose capacity is 128, 256, 512 or 1024.
@@ -89,7 +89,7 @@ Subpackage `pbufio` is intended for `*bufio.{Reader, Writer}` reuse.
 ```go
 package main
 
-import "github.com/gobwas/pool/pbufio"
+import "github.com/ezoic/pool/pbufio"
 
 func main() {
 	bw := pbufio.GetWriter(os.Stdout, 100) // Returns bufio.NewWriterSize(128).
@@ -103,5 +103,5 @@ Like with `pbytes`, you can also create pool with custom reuse bounds.
 
 
 
-[godoc-image]: https://godoc.org/github.com/gobwas/pool?status.svg
-[godoc-url]:   https://godoc.org/github.com/gobwas/pool
+[godoc-image]: https://godoc.org/github.com/ezoic/pool?status.svg
+[godoc-url]:   https://godoc.org/github.com/ezoic/pool
